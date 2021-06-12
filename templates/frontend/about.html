@@ -1,0 +1,62 @@
+{%extends 'frontend/base.html'%}
+{%block nav%}
+<ul class="custom-menu">
+  <li></li><a href="{% url 'home'%}">Home</a></li>
+  <li class="active"><a href="{%url 'about'%}">About Me</a></li>
+  <li><a href="{%url 'services'%}">Services</a></li>
+  <li><a href="{%url 'works'%}">Works</a></li>
+  <li><a href="{%url 'contact'%}">Contact</a></li>
+</ul>{%endblock%}
+{%block content%}
+{%load static%}
+
+  <main id="main">
+
+    <section class="section pb-5">
+      <div class="container">
+        <div class="row mb-5 align-items-end">
+          <div class="col-md-6" data-aos="fade-up">
+
+            <h2>About Me</h2>
+            <p class="mb-0">Here you can view some information about me and my skills.</p>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 ml-auto order-2" data-aos="fade-up">
+            <h3 class="h3 mb-4">Skills</h3>
+            <ul class="list-unstyled">
+              {%for skill in skills%}
+              <li class="mb-3">
+                <div class="d-flex mb-1">
+                  <strong>{{skill.name}}</strong>
+                  <span class="ml-5">{{skill.proficiency}}%</span>
+                </div>
+                <div class="progress custom-progress">
+                  <div class="progress-bar" role="progressbar" style="width: {{skill.proficiency}}%;" aria-valuenow="{{skill.proficiency}}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+              </li>
+              {%endfor%}
+            </ul>
+          </div>
+
+          <div class="col-md-7 mb-5 mb-md-0" data-aos="fade-up">
+            <p><img src="{% static 'assets/img/portfolio_bg.jpg'%}" alt="Image" class="img-fluid"></p>
+            <p>Hello, my name is Utibeabasi Umanah.</p>
+            <p>I'm a fullstack web and mobile developer with expertise in React, NodeJs, Flutter and Python. I also use other languages and frameworks like Golang, Typescript etc</p>
+            <p>Basically that means I work on both the client and server side of web and mobile applications..</p>
+            <p>I'm looking forward to working with you on your next project.</p>
+            
+            <p><a href="{%static 'assets/CV.pdf'%}" download="" class="readmore">Download my CV</a></p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main><!-- End #main -->
+
+  {%endblock%}

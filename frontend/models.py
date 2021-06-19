@@ -45,7 +45,15 @@ class Service(models.Model):
     name = models.CharField(max_length=500)
     description = models.TextField()
     icon = models.CharField(max_length=100)
-    services = ArrayField(models.CharField(max_length=500))
+    link = models.URLField(blank=True)
+
+    def __str__(self) -> str:
+        return self.name
+
+class Interest(models.Model):
+    name = models.CharField(max_length=500)
+    color = models.CharField(max_length=500)
+    icon = models.CharField(max_length=100)
 
     def __str__(self) -> str:
         return self.name
